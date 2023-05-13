@@ -2,10 +2,10 @@
 
 namespace RssPodcastEpisode\Functionality;
 
-use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 use Carbon_Fields\Block;
 use RssPodcastEpisode\Includes\BladeLoader;
+use RssPodcastEpisode\Components\FeedReader;
 
 class Gutenberg
 {
@@ -31,27 +31,29 @@ class Gutenberg
 
     public function add_gutenberg_blocks()
     {
-        Block::make(__('Podcast: Single Podcast'))
+        Block::make(__('Podcast: Last Episode'))
             ->add_fields(array(
-                Field::make('separator', 'single_separator', __('Single Podcast', 'rss-podcast-episode')),
-                Field::make('text', 'url_single_podcast', __('URL')),
+                Field::make('separator', 'single_separator', __('Last Episode', 'rss-podcast-episode')),
+                Field::make('text', 'url_single_podcast', __('Podcast URL')),
             ))
             ->set_icon('format-audio')
-            ->set_category('sirvelia')
+            ->set_category('rss-podcast-episode')
             ->set_render_callback(function ($fields, $attributes, $inner_blocks) {
-                echo $this->blade->template('blocks/single-podcast', array('fields' => $fields));
+                $feed = $fields['url_single_podcast'] ? FeedReader::get_feed($fields['url_single_podcast']) : [];
+                echo $this->blade->template('single-podcast', ['feed' => $feed]);
             });
 
 
         Block::make(__('Podcast: Podcast Playlist'))
             ->add_fields(array(
                 Field::make('separator', 'playlist_separator', __('Podcast Playlist', 'rss-podcast-episode')),
-                Field::make('text', 'url_podcast_playlist', __('URL')),
+                Field::make('text', 'url_podcast_playlist', __('Podcast URL')),
             ))
             ->set_icon('playlist-audio')
-            ->set_category('sirvelia')
+            ->set_category('rss-podcast-episode')
             ->set_render_callback(function ($fields, $attributes, $inner_blocks) {
-                echo  $this->blade->template('blocks/podcast-playlist', array('fields' => $fields));
+                $feed = $fields['url_podcast_playlist'] ? FeedReader::get_feed($fields['url_podcast_playlist']) : [];
+                echo  $this->blade->template('podcast-playlist', ['feed' => $feed]);
             });
     }
 }

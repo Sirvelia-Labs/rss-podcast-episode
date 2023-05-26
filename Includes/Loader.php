@@ -1,4 +1,5 @@
 <?php
+
 namespace RssPodcastEpisode\Includes;
 
 class Loader
@@ -18,12 +19,11 @@ class Loader
 	private function load_dependencies()
 	{
 		foreach (glob(RSSPODCASTEPISODE_PATH . 'Functionality/*.php') as $filename) {
-			$class_name = '\\RssPodcastEpisode\Functionality\\'. basename($filename, '.php');
+			$class_name = '\\RssPodcastEpisode\Functionality\\' . basename($filename, '.php');
 			if (class_exists($class_name)) {
 				try {
 					new $class_name($this->plugin_name, $this->plugin_version);
-				}
-				catch (\Throwable $e) {
+				} catch (\Throwable $e) {
 					pb_log($e);
 					continue;
 				}

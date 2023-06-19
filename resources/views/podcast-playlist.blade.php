@@ -1,7 +1,7 @@
 <div class="pb-shadow-[0_0px_60px_-15px_rgba(0,0,0,0.3)] pb-rounded-lg pb-overflow-hidden" x-cloak
-    x-data="{ showMoreItem: null, selectedItem: 0, playedItem: null, items: @js($feed) }">
+    x-data="audioData(@js($feed))">
     {{-- TODO: PONER PB-H-40 --}}
-    <div class="pb-grid pb-grid-cols-5" x-data="audioData">
+    <div class="pb-grid pb-grid-cols-5">
         <div class="pb-w-40 pb-h-40 pb-z-20">
             <img :src="items[selectedItem].image">
         </div>

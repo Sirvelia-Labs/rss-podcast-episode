@@ -3,11 +3,17 @@ import Alpine from 'alpinejs'
 
 export const AudioCustom = () => {
 
-    Alpine.data('audioData', () => ({
+    Alpine.data('audioData', (audios) => ({
 
         currentTime: '00:00',
+        showMoreItem: null, 
+        selectedItem: 0, 
+        playedItem: null,
+        items: audios,
 
         init () {
+
+            this.$watch('selectedItem', value => console.log("Hola"))
 
             var audioElement = this.$refs.audioin;
             var progressBar = this.$refs.progress;

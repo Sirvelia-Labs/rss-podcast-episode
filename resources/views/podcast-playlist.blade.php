@@ -1,14 +1,14 @@
 <div class="pb-shadow-[0_0px_60px_-15px_rgba(0,0,0,0.3)] pb-rounded-lg pb-overflow-hidden" x-cloak
     x-data="audioData(@js($feed))">
     {{-- TODO: PONER PB-H-40 --}}
-    <div class="pb-grid pb-grid-cols-5">
-        <div class="pb-w-40 pb-h-40 pb-z-20">
-            <img :src="items[selectedItem].image">
-        </div>
+    <div class="pb-grid pb-grid-cols-5 pb-h-40">
+
+        <img :src="items[selectedItem].image" class="pb-bg-cover pb-h-40">
+
         <div class="pb-col-span-4 pb-flex pb-flex-col">
             {{-- <p x-text="items[selectedItem].title"></p> --}}
 
-            <div class=" pb-flex-1 pb-p-4">
+            <div class="pb-flex-1 pb-p-4">
                 <div class="pb-grid pb-grid-cols-4">
                     <div class="pb-col-span-3 pb-flex pb-flex-col pb-gap-y-2">
                         <p class="pb-text-2xl pb-font-bold pb-text-black pb-line-clamp-1"
@@ -23,11 +23,17 @@
 
                         {{-- TODO: EJEMPLOS --}}
                         <p x-text="currentTime"></p>
-                        <audio :src="items[selectedItem].enclosure" controls x-ref="audioin"></audio>
+                        <audio :src="items[selectedItem].enclosure" x-ref="audioin"></audio>
 
                     </div>
                 </div>
             </div>
+
+            <div class="pb-flex">
+                <p x-text="currentTime"></p>
+                <p x-text=""></p>
+            </div>
+
             <div class="pb-w-full pb-h-2 pb-bg-slate-100" x-on:click="seek($event)">
                 <div class="pb-h-full pb-bg-green-400" style="width: 0%;" x-ref="progress">
                 </div>
@@ -42,21 +48,20 @@
 
         <template x-for="(item,index) in items" :key="index">
             <div class="pb-border pb-border-gray-200 pb-flex pb-flex-row pb-rounded-lg pb-p-6 pb-gap-x-6 pb-cursor-pointer"
-                x-on:click="selectedItem = index">
+                x-on:click="changePlaying(index)">
                 <div class="pb-shrink-0 pb-w-14 pb-h-14 pb-relative pb-flex pb-justify-center pb-items-center">
                     <div
                         class="pb-w-full pb-h-full pb-rounded-md pb-flex pb-justify-center pb-items-center pb-relative">
                         <div
                             class="pb-rounded-full pb-w-1/2 pb-h-1/2 pb-bg-white pb-z-10 hover:pb-scale-110 pb-flex pb-justify-center pb-items-center">
-                            <template x-if="playedItem !== index">
-                                <div class="pb-border-b-transparent pb-border-b-[8px] pb-border-t-transparent pb-border-t-[8px] pb-border-l-[12px] pb-border-l-black"
-                                    x-on:click.stop="playedItem = index; selectedItem = index; $refs.audioin.play()">
+                            <template x-if="selectedItem !== index || !playing">
+                                <div
+                                    class="pb-border-b-transparent pb-border-b-[8px] pb-border-t-transparent pb-border-t-[8px] pb-border-l-[12px] pb-border-l-black">
                                 </div>
                             </template>
-                            <template x-if="playedItem === index">
+                            <template x-if="selectedItem === index && playing">
                                 <div class="pb-border-black pb-border-l-4 pb-border-r-4 pb-w-1/2 pb-h-1/2"
-                                    x-on:click.stop="playedItem = null; $refs.audioin.pause()">
-
+                                    x-on:click.stop="$refs.audioin.pause(); playing = false">
                                 </div>
                             </template>
                         </div>

@@ -28,8 +28,9 @@
                     </div>
                 </div>
             </div>
-            <div class="pb-w-full pb-h-2 pb-bg-slate-100">
-                <div class="pb-h-full pb-bg-green-400" style="width: 0%;" x-ref="progress"></div>
+            <div class="pb-w-full pb-h-2 pb-bg-slate-100" x-on:click="seek($event)">
+                <div class="pb-h-full pb-bg-green-400" style="width: 0%;" x-ref="progress">
+                </div>
             </div>
 
         </div>

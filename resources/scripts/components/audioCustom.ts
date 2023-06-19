@@ -17,14 +17,14 @@ export const AudioCustom = () => {
                 var progressPercentage = (audioElement.currentTime / audioElement.duration) * 100;
                 progressBar.style.width = progressPercentage + "%";
             });
+        },
 
-            progressBar.addEventListener("click", function(event) {
-                var progressBarWidth = progressBar.clientWidth;
-                var clickPositionX = event.offsetX;
-                var progressPercentage = (clickPositionX / progressBarWidth) * 100;
-                var seekTime = (progressPercentage / 100) * audioElement.duration;
-                audioElement.currentTime = seekTime;
-              });
+        seek($event: any) {
+            var progressBarWidth = $event.target.clientWidth;
+            var clickPositionX = $event.offsetX;
+            var progressPercentage = (clickPositionX / progressBarWidth) * 100;
+            var seekTime = (progressPercentage / 100) * this.$refs.audioin.duration;
+            this.$refs.audioin.currentTime = seekTime;
         }
 
         

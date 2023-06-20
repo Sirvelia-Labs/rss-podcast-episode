@@ -12,9 +12,6 @@ export const AudioCustom = () => {
         playing: false,
 
         init () {
-
-            
-            
             this.$watch('selectedItem', value => {this.$refs.audioin.play(); this.playing = true})
 
             var audioElement = this.$refs.audioin;
@@ -28,12 +25,13 @@ export const AudioCustom = () => {
         },
 
         seek($event: any) {
-            var progressBarWidth = $event.target.clientWidth;
+            var progressBarWidth = this.$refs.progressBar.clientWidth;
             var clickPositionX = $event.offsetX;
             var progressPercentage = (clickPositionX / progressBarWidth) * 100;
             var seekTime = (progressPercentage / 100) * this.$refs.audioin.duration;
             this.$refs.audioin.currentTime = seekTime;
         },
+        
 
         changePlaying(index: number){
             this.playing ? this.$refs.audioin.pause() : this.$refs.audioin.play();

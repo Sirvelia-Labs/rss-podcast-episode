@@ -17,9 +17,12 @@ class FeedReader
         // Load and parse the podcast feed XML
         $podcast_feed = simplexml_load_string($podcast_feed_xml);
         if (!$podcast_feed) return [];
+        $channel = $podcast_feed->channel;
+        $title = $channel->title;
+
 
         $items = [];
-        foreach ($podcast_feed->channel->item as $item) {
+        foreach ($channel->item as $item) {
             $items[] = [
                 'title' => (string) $item->title,
                 'description' => (string) $item->description,
@@ -32,8 +35,10 @@ class FeedReader
             ];
         }
 
-        pb_log($items);
 
-        return $items;
+        return [
+            'items' => $items,
+            'title' => $title,
+        ];
     }
 }

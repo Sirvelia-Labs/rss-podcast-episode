@@ -38,12 +38,11 @@ class Shortcodes
 			'url' => ''
 		], $atts, 'show_last_podcast_episode');
 
-		$feed = $atts['url'] ? FeedReader::get_feed($atts['url']) : [];
+		$feed = $atts['url'] ? FeedReader::get_last_episode($atts['url']) : [];
 
 		pb_log($feed);
-		pb_log("Hola");
 
-		return $this->blade->template('single-podcast', ['feed' => $feed['items'], 'title' => $feed['title']]);
+		return $this->blade->template('single-podcast', ['episode' => $feed['episode'], 'title' => $feed['title']]);
 	}
 
 	public function show_podcast_list($atts, $content = "")

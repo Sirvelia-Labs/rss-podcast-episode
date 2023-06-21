@@ -39,8 +39,9 @@ class Gutenberg
             ->set_icon('format-audio')
             ->set_category('rss-podcast-episode')
             ->set_render_callback(function ($fields, $attributes, $inner_blocks) {
-                $feed = $fields['url_single_podcast'] ? FeedReader::get_feed($fields['url_single_podcast']) : [];
-                echo $this->blade->template('single-podcast', ['feed' => $feed['items'], 'title' => $feed['title']]);
+                $feed = $fields['url_single_podcast'] ? FeedReader::get_last_episode($fields['url_single_podcast']) : [];
+                pb_log($feed);
+                echo $this->blade->template('single-podcast', ['episode' => $feed['episode'], 'title' => $feed['title']]);
             });
 
 

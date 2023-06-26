@@ -37,6 +37,14 @@ export const AudioCustom = () => {
             this.playing ? this.$refs.audioin.pause() : this.$refs.audioin.play();
             this.playing = !this.playing;
             this.selectedItem = index;
+        },
+
+        advanceSeconds(){
+            this.$refs.audioin.currentTime = this.$refs.audioin.currentTime+30;
+        },
+
+        moveBackSeconds(){
+            this.$refs.audioin.currentTime = this.$refs.audioin.currentTime-30;
         }
 
         

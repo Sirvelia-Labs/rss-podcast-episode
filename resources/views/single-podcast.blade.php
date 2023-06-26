@@ -33,6 +33,21 @@
                     </div>
 
                 </div>
+
+                <div class="pb-w-full pb-h-full pb-flex pb-flex-col">
+                    <div class="pb-mt-auto pb-flex pb-justify-end pb-gap-x-2">
+                        <div class="pb-rounded-full pb-p-1 pb-cursor-pointer pb-border-black pb-border-2"
+                            x-on:click.stop="moveBackSeconds">
+                            <p class="pb-text-sm pb-font-semibold">-30s</p>
+                        </div>
+
+                        <div class="pb-rounded-full pb-p-1 pb-cursor-pointer pb-border-black pb-border-2"
+                            x-on:click.stop="advanceSeconds">
+                            <p class="pb-text-sm pb-font-semibold">+30s</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
 

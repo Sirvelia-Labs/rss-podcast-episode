@@ -1,9 +1,19 @@
-import Alpine from 'alpinejs'
+import { AlpineComponent } from 'alpinejs'
 
+interface Audio {
+    title: String
+    description: String
+    link: String
+    guid: String
+    pubDate: String
+    duration: String
+    image: String
+    enclosure: String
+}
 
-export const AudioCustom = () => {
+export const AudioCustom = (Alpine: AlpineComponent) =>
 
-    Alpine.data('audioData', (audios) => ({
+    Alpine.data('audioData', (audios: Audio[]) => ({
 
         currentTime: '00:00',
         showMoreItem: null, 
@@ -12,7 +22,7 @@ export const AudioCustom = () => {
         playing: false,
 
         init () {
-            this.$watch('selectedItem', value => {this.$refs.audioin.play(); this.playing = true})
+            this.$watch('selectedItem', () => {this.$refs.audioin.play(); this.playing = true})
 
             var audioElement = this.$refs.audioin;
             var progressBar = this.$refs.progress;

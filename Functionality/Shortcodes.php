@@ -20,16 +20,12 @@ class Shortcodes
 		$this->blade = BladeLoader::getInstance();
 
 		add_action('init', [$this, 'add_shortcodes']);
-		add_filter('do_shortcode_tag', function ($output, $tag, $attr) {
-			return "<span style='display: none;' class='plubo-shortcode' data-tag='$tag'></span>" . $output;
-		}, 22, 3);
 	}
 
 	public function add_shortcodes()
 	{
 		add_shortcode('show_last_podcast_episode', [$this, 'show_last_podcast_episode']);
 		add_shortcode('show_podcast_list', [$this, 'show_podcast_list']);
-		return;
 	}
 
 	public function show_last_podcast_episode($atts, $content = "")
@@ -39,10 +35,10 @@ class Shortcodes
 		], $atts, 'show_last_podcast_episode');
 
 		$feed = $atts['url'] ? FeedReader::get_last_episode($atts['url']) : [];
-
-		pb_log($feed);
-
-		return $this->blade->template('single-podcast', ['episode' => $feed['episode'], 'title' => $feed['title']]);
+		return $this->blade->template('single-podcast', [
+			'episode' => $feed['episode'],
+			'title' => $feed['title']
+		]);
 	}
 
 	public function show_podcast_list($atts, $content = "")
@@ -52,6 +48,9 @@ class Shortcodes
 		], $atts, 'show_podcast_list');
 
 		$feed = $atts['url'] ? FeedReader::get_feed($atts['url']) : [];
-		return $this->blade->template('podcast-playlist', ['feed' => $feed['items'], 'title' => $feed['title']]);
+		return $this->blade->template('podcast-playlist', [
+			'feed' => $feed['items'],
+			'title' => $feed['title']
+		]);
 	}
 }

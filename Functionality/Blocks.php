@@ -7,7 +7,7 @@ use Carbon_Fields\Block;
 use RssPodcastEpisode\Includes\BladeLoader;
 use RssPodcastEpisode\Components\FeedReader;
 
-class Gutenberg
+class Blocks
 {
 
     protected $plugin_name;

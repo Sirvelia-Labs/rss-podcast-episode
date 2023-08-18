@@ -1,8 +1,19 @@
-import Alpine from 'alpinejs'
+import { AlpineComponent } from 'alpinejs'
 
-export const SingleAudioCustom = () => {
+interface Audio {
+    title: String
+    description: String
+    link: String
+    guid: String
+    pubDate: String
+    duration: String
+    image: String
+    enclosure: String
+}
 
-    Alpine.data('singleAudioData', (audio) => ({
+export const SingleAudioCustom = (Alpine: AlpineComponent) =>
+
+    Alpine.data('singleAudioData', (audio: Audio) => ({
 
         currentTime: '00:00',
         item: audio,

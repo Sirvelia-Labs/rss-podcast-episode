@@ -1,11 +1,12 @@
-import Router from './utils/Router';
-import common from './routes/common';
+import Alpine from 'alpinejs';
 
-
-
-const routes = {
-  common, // All pages
-};
+import { AudioCustom } from './components/audioCustom';
+import { SingleAudioCustom } from './components/singleAudio';
 
 // Load Events
-window.addEventListener('DOMContentLoaded', () => new Router(routes).loadEvents());
+window.addEventListener('DOMContentLoaded', () => {
+  window.Alpine = Alpine;
+  Alpine.plugin(AudioCustom)
+  Alpine.plugin(SingleAudioCustom)
+  Alpine.start();
+});

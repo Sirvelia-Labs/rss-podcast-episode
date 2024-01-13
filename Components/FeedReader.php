@@ -28,7 +28,7 @@ class FeedReader
                 'description' => (string) $item->description,
                 'link' => (string) $item->link,
                 'guid' => (string) $item->guid,
-                'pubDate' => date('d M Y', strtotime((string) $item->pubDate)),
+                'pubDate' => gmdate('d M Y', strtotime((string) $item->pubDate)),
                 'duration' => ltrim((string) $item->children('http://www.itunes.com/dtds/podcast-1.0.dtd')->duration, '0:'),
                 'image' => (string) $item->children('http://www.itunes.com/dtds/podcast-1.0.dtd')->image->attributes()->href,
                 'enclosure' => (string) $item->enclosure['url']
@@ -64,7 +64,7 @@ class FeedReader
             'description' => (string) $item->description,
             'link' => (string) $item->link,
             'guid' => (string) $item->guid,
-            'pubDate' => date('d M Y', strtotime((string) $item->pubDate)),
+            'pubDate' => gmdate('d M Y', strtotime((string) $item->pubDate)),
             'duration' => ltrim((string) $item->children('http://www.itunes.com/dtds/podcast-1.0.dtd')->duration, '0:'),
             'image' => (string) $item->children('http://www.itunes.com/dtds/podcast-1.0.dtd')->image->attributes()->href,
             'enclosure' => (string) $item->enclosure['url']

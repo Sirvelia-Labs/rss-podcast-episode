@@ -8,9 +8,6 @@
 		}
 	],
 	"autoload": {
-		"files": [
-			"Utils/dev.php"
-		],
 		"psr-4": {
 			"RssPodcastEpisode\\": ""
 		}

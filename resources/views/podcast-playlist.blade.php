@@ -1,3 +1,5 @@
+<?php // Silence will fall ?>
+
 <div class="pb-shadow-[0_0px_60px_-15px_rgba(0,0,0,0.3)] pb-rounded-lg pb-overflow-hidden" x-cloak
     x-data="audioData(@js($feed))">
     <div class="pb-grid pb-grid-cols-5 lg:pb-h-40 lg:pb-pb-0 pb-pb-3">

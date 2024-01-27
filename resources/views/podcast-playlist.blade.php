@@ -1,12 +1,10 @@
 <div class="pb-shadow-[0_0px_60px_-15px_rgba(0,0,0,0.3)] pb-rounded-lg pb-overflow-hidden" x-cloak
     x-data="audioData(@js($feed))">
-    {{-- TODO: PONER PB-H-40 --}}
     <div class="pb-grid pb-grid-cols-5 lg:pb-h-40 lg:pb-pb-0 pb-pb-3">
 
         <img :src="items[selectedItem].image" class="pb-bg-cover pb-h-40 pb-hidden lg:pb-inline">
 
         <div class="pb-col-span-5 lg:pb-col-span-4 pb-flex pb-flex-col">
-            {{-- <p x-text="items[selectedItem].title"></p> --}}
 
             <div class="pb-flex-1 pb-px-4 pb-py-2">
                 <div class="pb-grid pb-grid-cols-4">
@@ -23,7 +21,7 @@
                         <audio :src="items[selectedItem].enclosure" x-ref="audioin"></audio>
 
                         <div
-                            class="pb-rounded-full pb-w-8 pb-h-8 pb-bg-green-400 pb-z-10 hover:pb-scale-110 pb-flex pb-justify-center pb-items-center">
+                            class="pb-rounded-full pb-w-8 pb-h-8 pb-bg-green-400 pb-z-10 hover:pb-scale-110 pb-flex pb-justify-center pb-items-center pb-cursor-pointer">
                             <template x-if="!playing">
                                 <div class="pb-border-b-transparent pb-border-b-[8px] pb-border-t-transparent pb-border-t-[8px] pb-border-l-[12px] pb-border-l-black"
                                     x-on:click.stop="changePlaying(selectedItem)">
@@ -148,11 +146,3 @@
 
     </div>
 </div>
-
-<style>
-    #progressBar {
-        width: 100%;
-        height: 10px;
-        background-color: #ddd;
-    }
-</style>

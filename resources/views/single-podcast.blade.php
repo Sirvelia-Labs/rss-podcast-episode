@@ -19,7 +19,7 @@
                     <audio :src="item.enclosure" x-ref="audioin"></audio>
 
                     <div
-                        class="pb-rounded-full pb-w-8 pb-h-8 pb-bg-green-400 pb-z-10 hover:pb-scale-110 pb-flex pb-justify-center pb-items-center">
+                        class="pb-rounded-full pb-w-8 pb-h-8 pb-bg-green-400 pb-z-10 hover:pb-scale-110 pb-flex pb-justify-center pb-items-center pb-cursor-pointer">
                         <template x-if="!playing">
                             <div class="pb-border-b-transparent pb-border-b-[8px] pb-border-t-transparent pb-border-t-[8px] pb-border-l-[12px] pb-border-l-black"
                                 x-on:click.stop="changePlaying()">

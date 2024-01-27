@@ -1,13 +1,11 @@
 <?php
 
 /**
- * The plugin bootstrap file
- *
  * @wordpress-plugin
  * Plugin Name:       Rss Podcast Episode
  * Plugin URI:        https://sirvelia.com/
  * Description:       Adds Podcast blocks for Gutenberg, Elementor and Beaver Builder
- * Version:           1.0.1
+ * Version:           1.0.0
  * Author:            Sirvelia
  * License:           GPL-3.0+
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
@@ -20,7 +18,8 @@ if (!defined('WPINC')) {
 }
 
 // PLUGIN CONSTANTS
-define('RSSPODCASTEPISODE_VERSION', '1.0.1');
+define('RSSPODCASTEPISODE_NAME', 'rss-podcast-episode');
+define('RSSPODCASTEPISODE_VERSION', '1.0.0');
 define('RSSPODCASTEPISODE_PATH', plugin_dir_path(__FILE__));
 define('RSSPODCASTEPISODE_BASENAME', plugin_basename(__FILE__));
 define('RSSPODCASTEPISODE_URL', plugin_dir_url(__FILE__));

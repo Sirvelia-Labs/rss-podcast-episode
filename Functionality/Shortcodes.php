@@ -30,12 +30,16 @@ class Shortcodes
 
 	public function show_last_podcast_episode($atts, $content = "")
 	{
+		wp_enqueue_style(RSSPODCASTEPISODE_NAME);
+        wp_enqueue_script(RSSPODCASTEPISODE_NAME);
+
 		$atts = shortcode_atts([
 			'url' => ''
 		], $atts, 'show_last_podcast_episode');
 
 		$feed = $atts['url'] ? FeedReader::get_last_episode( sanitize_text_field($atts['url']) ) : false;
 		if(!$feed) return '';
+
 
 		return $this->blade->template('single-podcast', [
 			'episode' => $feed['episode'],
@@ -45,12 +49,16 @@ class Shortcodes
 
 	public function show_podcast_list($atts, $content = "")
 	{
+		wp_enqueue_style(RSSPODCASTEPISODE_NAME);
+        wp_enqueue_script(RSSPODCASTEPISODE_NAME);
+
 		$atts = shortcode_atts([
 			'url' => ''
 		], $atts, 'show_podcast_list');
 
 		$feed = $atts['url'] ? FeedReader::get_feed( sanitize_text_field($atts['url']) ) : false;
 		if(!$feed) return '';
+
 
 		return $this->blade->template('podcast-playlist', [
 			'feed' => $feed['items'],

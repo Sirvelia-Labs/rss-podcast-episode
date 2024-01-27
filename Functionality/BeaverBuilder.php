@@ -3,7 +3,6 @@
 namespace RssPodcastEpisode\Functionality;
 
 use RssPodcastEpisode\Includes\BladeLoader;
-use RssPodcastEpisode\Components\FeedReader;
 
 class BeaverBuilder
 {

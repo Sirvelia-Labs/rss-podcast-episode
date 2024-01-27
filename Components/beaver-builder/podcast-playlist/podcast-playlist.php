@@ -4,7 +4,7 @@ class PodcastPlaylist extends \FLBuilderModule {
 	public function __construct() {
 
 		parent::__construct(array(
-			'name' => __( 'Last Episode', 'fl-builder' ),
+			'name' => __( 'Podcast Playlist', 'fl-builder' ),
 			'description' => __( 'Displays the podcast last episode', 'fl-builder' ),
 			'group' => __( 'Podcast', 'fl-builder' ),
 			'category' => __( 'podcast', 'fl-builder' ),

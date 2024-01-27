@@ -34,7 +34,9 @@ class Shortcodes
 			'url' => ''
 		], $atts, 'show_last_podcast_episode');
 
-		$feed = $atts['url'] ? FeedReader::get_last_episode($atts['url']) : [];
+		$feed = $atts['url'] ? FeedReader::get_last_episode( sanitize_text_field($atts['url']) ) : false;
+		if(!$feed) return '';
+
 		return $this->blade->template('single-podcast', [
 			'episode' => $feed['episode'],
 			'title' => $feed['title']
@@ -47,7 +49,9 @@ class Shortcodes
 			'url' => ''
 		], $atts, 'show_podcast_list');
 
-		$feed = $atts['url'] ? FeedReader::get_feed($atts['url']) : [];
+		$feed = $atts['url'] ? FeedReader::get_feed( sanitize_text_field($atts['url']) ) : false;
+		if(!$feed) return '';
+
 		return $this->blade->template('podcast-playlist', [
 			'feed' => $feed['items'],
 			'title' => $feed['title']

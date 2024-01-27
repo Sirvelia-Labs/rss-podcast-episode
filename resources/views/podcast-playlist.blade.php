@@ -2,7 +2,7 @@
     x-data="audioData(@js($feed))">
     <div class="pb-grid pb-grid-cols-5 lg:pb-h-40 lg:pb-pb-0 pb-pb-3">
 
-        <img :src="items[selectedItem].image" class="pb-bg-cover pb-h-40 pb-hidden lg:pb-inline">
+        <img :src="items[selectedItem].image" class="pb-object-cover pb-h-40 pb-hidden lg:pb-inline">
 
         <div class="pb-col-span-5 lg:pb-col-span-4 pb-flex pb-flex-col">
 
@@ -36,14 +36,14 @@
 
                     </div>
 
-                    <div class="pb-w-full pb-h-full pb-flex pb-flex-col">
+                    <div class="pb-col-span-4 lg:pb-col-span-1 pb-h-full pb-flex pb-flex-col">
                         <div class="pb-mt-auto pb-flex pb-justify-end pb-gap-x-2">
-                            <div class="pb-rounded-full pb-p-1 pb-cursor-pointer pb-border-black pb-border-2"
+                            <div class="pb-rounded-full pb-p-1 pb-cursor-pointer pb-border-black pb-border-2 hover:pb-bg-black hover:pb-text-white"
                                 x-on:click.stop="moveBackSeconds">
                                 <p class="pb-text-sm pb-font-semibold">-30s</p>
                             </div>
 
-                            <div class="pb-rounded-full pb-p-1 pb-cursor-pointer pb-border-black pb-border-2"
+                            <div class="pb-rounded-full pb-p-1 pb-cursor-pointer pb-border-black pb-border-2 hover:pb-bg-black hover:pb-text-white"
                                 x-on:click.stop="advanceSeconds">
                                 <p class="pb-text-sm pb-font-semibold">+30s</p>
                             </div>
@@ -70,14 +70,12 @@
 
 
         <template x-for="(item,index) in items" :key="index">
-            <div class="pb-border pb-border-gray-200 pb-flex pb-flex-row pb-rounded-lg pb-p-4 lg:pb-p-6 pb-gap-x-6 pb-cursor-pointer"
+            <div :class="(selectedItem === index) ? 'pb-border-green-400' : 'pb-border-gray-200'" class="pb-border pb-flex pb-flex-row pb-rounded-lg pb-p-4 lg:pb-p-6 pb-gap-x-6 pb-cursor-pointer"
                 x-on:click="changePlaying(index)">
                 <div
                     class="pb-shrink-0 pb-w-14 pb-h-14 pb-relative pb-justify-center pb-items-center pb-hidden lg:pb-flex">
-                    <div
-                        class="pb-w-full pb-h-full pb-rounded-md pb-justify-center pb-items-center pb-relative pb-flex">
-                        <div
-                            class="pb-rounded-full pb-w-1/2 pb-h-1/2 pb-bg-white pb-z-10 hover:pb-scale-110 pb-flex pb-justify-center pb-items-center">
+                    <div class="pb-w-full pb-h-full pb-rounded-md pb-justify-center pb-items-center pb-relative pb-flex">
+                        <div class="pb-rounded-full pb-w-1/2 pb-h-1/2 pb-bg-white pb-z-10 hover:pb-scale-110 pb-flex pb-justify-center pb-items-center">
                             <template x-if="selectedItem !== index || !playing">
                                 <div
                                     class="pb-border-b-transparent pb-border-b-[8px] pb-border-t-transparent pb-border-t-[8px] pb-border-l-[12px] pb-border-l-black">
@@ -92,28 +90,21 @@
 
                         <img :src="item.image" class="pb-absolute">
                     </div>
+
                     <template x-if="selectedItem === index">
                         <div class="pb-w-2 pb-h-2 pb-bg-green-400 pb-rounded-full pb-absolute pb--left-4 pb-top-[24px]">
-
                         </div>
                     </template>
                 </div>
 
-                <div class="pb-flex pb-flex-col pb-flex-shrink pb-flex-grow pb-relative">
-
-                    <template x-if="selectedItem === index">
-                        <div
-                            class="pb-w-2 pb-h-2 pb-bg-green-400 pb-rounded-full lg:pb-hidden pb-absolute pb--left-[10px] pb-top-[10px]">
-
-                        </div>
-                    </template>
+                <div class="pb-flex pb-flex-col pb-flex-1 pb-relative">
 
                     <p class="pb-text-lg pb-font-bold pb-text-black pb-line-clamp-2 lg:pb-line-clamp-1"
                         x-text="item.title">
                     </p>
 
                     <div
-                        class="pb-flex-row pb-justify-between pb-flex pb-flex-shrink pb-flex-grow pb-text-right lg:pb-hidden pb-pt-2">
+                        class="pb-flex-row pb-justify-between pb-flex pb-text-right lg:pb-hidden pb-pt-2">
                         <p class="pb-whitespace-nowrap pb-text-sm" x-text="item.pubDate"></p>
                         <p class="pb-text-sm" x-text="item.duration"></p>
                     </div>
@@ -136,7 +127,7 @@
                 </div>
 
                 <div
-                    class="pb-flex-col pb-justify-between lg:pb-flex pb-hidden pb-flex-shrink pb-flex-grow pb-text-right">
+                    class="pb-flex-col pb-justify-between lg:pb-flex pb-hidden pb-text-right">
                     <p class="pb-whitespace-nowrap" x-text="item.pubDate"></p>
                     <p x-text="item.duration"></p>
                 </div>

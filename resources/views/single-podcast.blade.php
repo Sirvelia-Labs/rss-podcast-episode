@@ -1,7 +1,7 @@
 <div class="pb-grid pb-grid-cols-5 lg:pb-h-40 lg:pb-pb-0 pb-pb-3 pb-shadow-[0_0px_60px_-15px_rgba(0,0,0,0.3)] pb-rounded-lg pb-overflow-hidden"
     x-cloak x-data="singleAudioData(@js($episode))">
 
-    <img :src="item.image" class="pb-bg-cover pb-h-40 pb-hidden lg:pb-inline">
+    <img :src="item.image" class="pb-object-cover pb-h-40 pb-hidden lg:pb-inline">
 
     <div class="pb-col-span-5 lg:pb-col-span-4 pb-flex pb-flex-col">
 
@@ -34,14 +34,14 @@
 
                 </div>
 
-                <div class="pb-w-full pb-h-full pb-flex pb-flex-col">
+                <div class="pb-col-span-4 lg:pb-col-span-1 pb-h-full pb-flex pb-flex-col">
                     <div class="pb-mt-auto pb-flex pb-justify-end pb-gap-x-2">
-                        <div class="pb-rounded-full pb-p-1 pb-cursor-pointer pb-border-black pb-border-2"
+                        <div class="pb-rounded-full pb-p-1 pb-cursor-pointer pb-border-black pb-border-2 hover:pb-bg-black hover:pb-text-white"
                             x-on:click.stop="moveBackSeconds">
                             <p class="pb-text-sm pb-font-semibold">-30s</p>
                         </div>
 
-                        <div class="pb-rounded-full pb-p-1 pb-cursor-pointer pb-border-black pb-border-2"
+                        <div class="pb-rounded-full pb-p-1 pb-cursor-pointer pb-border-black pb-border-2 hover:pb-bg-black hover:pb-text-white"
                             x-on:click.stop="advanceSeconds">
                             <p class="pb-text-sm pb-font-semibold">+30s</p>
                         </div>

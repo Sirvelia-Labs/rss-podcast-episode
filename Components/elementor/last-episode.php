@@ -18,7 +18,7 @@ class Elementor_LastEpisode extends \Elementor\Widget_Base
 
     public function get_icon()
     {
-        return 'eicon-code';
+        return 'eicon-play-o';
     }
 
     public function get_categories()
@@ -30,6 +30,14 @@ class Elementor_LastEpisode extends \Elementor\Widget_Base
     {
         return ['podcast', 'rss'];
     }
+
+    public function get_script_depends() {
+		return [ RSSPODCASTEPISODE_NAME ];
+	}
+
+    public function get_style_depends() {
+		return [ RSSPODCASTEPISODE_NAME ];
+	}
 
     protected function register_controls()
     {
@@ -54,12 +62,9 @@ class Elementor_LastEpisode extends \Elementor\Widget_Base
 
     protected function render()
     {
-        wp_enqueue_style(RSSPODCASTEPISODE_NAME);
-        wp_enqueue_script(RSSPODCASTEPISODE_NAME);
-
         $settings = $this->get_settings_for_display();
-        $feed = $settings['podcast_url'] ? FeedReader::get_last_episode($settings['podcast_url']) : [];
+        $feed = $settings['podcast_url'] ? FeedReader::get_last_episode($settings['podcast_url']) : false;
 
-        echo BladeLoader::getInstance()->template('single-podcast', ['episode' => $feed['episode'], 'title' => $feed['title']]);
+        echo $feed ? BladeLoader::getInstance()->template('single-podcast', ['episode' => $feed['episode'], 'title' => $feed['title']]) : false;
     }
 }

@@ -19,7 +19,7 @@ class Loader
 	private function load_dependencies()
 	{
 		if ( class_exists( 'FLBuilder' ) ) new \RssPodcastEpisode\Functionality\BeaverBuilder($this->plugin_name, $this->plugin_version);
-		if ( class_exists( '\Elementor\Widget_Base' ) ) new \RssPodcastEpisode\Functionality\Elementor($this->plugin_name, $this->plugin_version);
+		new \RssPodcastEpisode\Functionality\Elementor($this->plugin_name, $this->plugin_version);
 		new \RssPodcastEpisode\Functionality\Gutenberg($this->plugin_name, $this->plugin_version);
 		new \RssPodcastEpisode\Functionality\Scripts($this->plugin_name, $this->plugin_version);
 		new \RssPodcastEpisode\Functionality\Shortcodes($this->plugin_name, $this->plugin_version);

@@ -1,9 +1,11 @@
-<?php // Silence will fall ?>
+@php
+    if ( ! defined( 'ABSPATH' ) ) exit;
+@endphp
 
 <div class="pb-grid pb-grid-cols-5 lg:pb-h-40 lg:pb-pb-0 pb-pb-3 pb-shadow-[0_0px_60px_-15px_rgba(0,0,0,0.3)] pb-rounded-lg pb-overflow-hidden"
     x-cloak x-data="singleAudioData(@js($episode))">
 
-    <img :src="item.image" class="pb-object-cover pb-h-40 pb-hidden lg:pb-inline">
+    <img x-bind:src="item.image" class="pb-object-cover pb-h-40 pb-hidden lg:pb-inline">
 
     <div class="pb-col-span-5 lg:pb-col-span-4 pb-flex pb-flex-col">
 
@@ -13,12 +15,12 @@
                     <p class="pb-text-lg lg:pb-text-2xl pb-font-bold pb-text-black pb-line-clamp-1" x-text="item.title">
                     </p>
                     <div class="pb-flex pb-text-sm lg:pb-text-base">
-                        <p class="">{!! $title !!}</p>
+                        <p class="">{!! esc_html($title) !!}</p>
                         <span>&nbsp; • &nbsp;</span>
                         <p class="pb-whitespace-nowrap" x-text="item.pubDate"></p>
                     </div>
 
-                    <audio :src="item.enclosure" x-ref="audioin"></audio>
+                    <audio x-bind:src="item.enclosure" x-ref="audioin"></audio>
 
                     <div
                         class="pb-rounded-full pb-w-8 pb-h-8 pb-bg-green-400 pb-z-10 hover:pb-scale-110 pb-flex pb-justify-center pb-items-center pb-cursor-pointer">

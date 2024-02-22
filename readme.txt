@@ -1,8 +1,8 @@
 === RSS Podcast Episode ===
 Contributors: joanrodas,sirvelia
-Tags: podcast, rss, playlist
+Tags: podcast, rss, playlist, feed
 Requires at least: 5.4
-Tested up to: 6.4.2
+Tested up to: 6.4.3
 Requires PHP: 7.4
 Stable tag: 1.0.0
 License: GPLv3

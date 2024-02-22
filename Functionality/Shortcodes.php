@@ -24,8 +24,8 @@ class Shortcodes
 
 	public function add_shortcodes()
 	{
-		add_shortcode('show_last_podcast_episode', [$this, 'show_last_podcast_episode']);
-		add_shortcode('show_podcast_list', [$this, 'show_podcast_list']);
+		add_shortcode('rsspodcastepisode_last', [$this, 'show_last_podcast_episode']);
+		add_shortcode('rsspodcastepisode_playlist', [$this, 'show_podcast_list']);
 	}
 
 	public function show_last_podcast_episode($atts, $content = "")
@@ -35,7 +35,7 @@ class Shortcodes
 
 		$atts = shortcode_atts([
 			'url' => ''
-		], $atts, 'show_last_podcast_episode');
+		], $atts, 'rsspodcastepisode_last');
 
 		$feed = $atts['url'] ? FeedReader::get_last_episode( sanitize_text_field($atts['url']) ) : false;
 		if(!$feed) return '';
@@ -54,11 +54,10 @@ class Shortcodes
 
 		$atts = shortcode_atts([
 			'url' => ''
-		], $atts, 'show_podcast_list');
+		], $atts, 'rsspodcastepisode_playlist');
 
 		$feed = $atts['url'] ? FeedReader::get_feed( sanitize_text_field($atts['url']) ) : false;
 		if(!$feed) return '';
-
 
 		return $this->blade->template('podcast-playlist', [
 			'feed' => $feed['items'],

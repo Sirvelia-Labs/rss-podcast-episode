@@ -1,28 +1,28 @@
 {
 	"author": "Joan Rodas <joan@sirvelia.com>",
 	"bugs": {
-		"url": "https://github.com/joanrodas/plubo/issues"
+		"url": "https://github.com/Sirvelia-Labs/rss-podcast-episode/issues"
 	},
 	"devDependencies": {
 		"@types/alpinejs": "^3.13.6",
 		"@wordpress/scripts": "latest",
-		"css-loader": "6.9.0",
-		"mini-css-extract-plugin": "2.7.7",
-		"postcss": "8.4.33",
-		"postcss-loader": "7.3.4",
-		"postcss-preset-env": "9.3.0",
-		"sass": "1.69.7",
-		"sass-loader": "13.3.3",
+		"css-loader": "6.10.0",
+		"mini-css-extract-plugin": "2.8.0",
+		"postcss": "8.4.35",
+		"postcss-loader": "8.1.0",
+		"postcss-preset-env": "9.4.0",
+		"sass": "1.71.1",
+		"sass-loader": "14.1.1",
 		"ts-loader": "latest",
 		"typescript": "latest",
-		"webpack": "^5.89.0",
+		"webpack": "^5.90.3",
 		"webpack-cli": "^5.1.4",
 		"webpack-fix-style-only-entries": "0.6.1"
 	},
 	"engines": {
-		"node": ">=16.0.0"
+		"node": ">=19.0.0"
 	},
-	"homepage": "https://plubo.dev",
+	"homepage": "https://github.com/Sirvelia-Labs/rss-podcast-episode",
 	"licenses": [
 		{
 			"type": "GPL-3.0+",
@@ -33,7 +33,7 @@
 	"private": true,
 	"repository": {
 		"type": "git",
-		"url": "git://github.com/joanrodas/plubo.git"
+		"url": "git://github.com/Sirvelia-Labs/rss-podcast-episode.git"
 	},
 	"scripts": {
 		"build": "wp-scripts build",
@@ -42,9 +42,9 @@
 		"translate:js": "wp i18n make-json ./languages --pretty-print",
 		"translate:pot": "wp i18n make-pot . ./languages/rss-podcast-episode.pot --ignore-domain --include=\"react,resources\""
 	},
-	"version": "0.4.5",
+	"version": "1.0.0",
 	"dependencies": {
-		"alpinejs": "^3.13.3",
+		"alpinejs": "^3.13.5",
 		"tailwindcss": "^3.4.1"
 	}
 }

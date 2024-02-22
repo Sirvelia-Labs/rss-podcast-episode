@@ -1,5 +1,5 @@
 <?php
-class PodcastPlaylist extends \FLBuilderModule
+class RssPodcastEpisodePlaylist extends \FLBuilderModule
 {
 
     public function __construct()
@@ -9,8 +9,8 @@ class PodcastPlaylist extends \FLBuilderModule
             'description' => __('Displays the podcast last episode', 'rss-podcast-episode'),
             'group' => __('Podcast', 'rss-podcast-episode'),
             'category' => __('podcast', 'rss-podcast-episode'),
-            'dir' => RSSPODCASTEPISODE_PATH . 'Components/beaver-builder/podcast-playlist',
-            'url' => RSSPODCASTEPISODE_URL . 'Components/beaver-builder/podcast-playlist',
+            'dir' => RSSPODCASTEPISODE_PATH . 'Components/beaver-builder/rss-podcast-episode-playlist',
+            'url' => RSSPODCASTEPISODE_URL . 'Components/beaver-builder/rss-podcast-episode-playlist',
             'icon' => 'button.svg',
             'editor_export' => true, // Defaults to true and can be omitted.
             'enabled' => true, // Defaults to true and can be omitted.
@@ -19,7 +19,9 @@ class PodcastPlaylist extends \FLBuilderModule
     }
 }
 
-\FLBuilder::register_module('PodcastPlaylist', [
+if ( ! defined( 'ABSPATH' ) ) exit;
+
+\FLBuilder::register_module('RssPodcastEpisodePlaylist', [
     'podcast-tab'      => [
         'title'         => __('Config', 'rss-podcast-episode'),
         'sections'      => [

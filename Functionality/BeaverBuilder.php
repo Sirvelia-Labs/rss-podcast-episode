@@ -17,15 +17,14 @@ class BeaverBuilder
         $this->plugin_version = $plugin_version;
         $this->blade = BladeLoader::getInstance();
 
-        add_action('init', array($this, 'load_modules'));
+        add_action('init', [$this, 'load_modules']);
     }
 
     public function load_modules()
     {
-        if ( class_exists( 'FLBuilder' ) ) {
-            require_once RSSPODCASTEPISODE_PATH . 'Components/beaver-builder/last-episode/last-episode.php';
-            require_once RSSPODCASTEPISODE_PATH . 'Components/beaver-builder/podcast-playlist/podcast-playlist.php';
+        if (class_exists('FLBuilder')) {
+            require_once RSSPODCASTEPISODE_PATH . 'Components/beaver-builder/rss-podcast-episode-last/rss-podcast-episode-last.php';
+            require_once RSSPODCASTEPISODE_PATH . 'Components/beaver-builder/rss-podcast-episode-playlist/rss-podcast-episode-playlist.php';
         }
     }
-
 }

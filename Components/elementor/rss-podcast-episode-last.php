@@ -2,8 +2,9 @@
 
 use RssPodcastEpisode\Includes\BladeLoader;
 use RssPodcastEpisode\Components\FeedReader;
+use RssPodcastEpisode\Components\Escape;
 
-class Elementor_LastEpisode extends \Elementor\Widget_Base
+class RssPodcastEpisodeLast extends \Elementor\Widget_Base
 {
 
     public function get_name()
@@ -65,6 +66,9 @@ class Elementor_LastEpisode extends \Elementor\Widget_Base
         $settings = $this->get_settings_for_display();
         $feed = $settings['podcast_url'] ? FeedReader::get_last_episode($settings['podcast_url']) : false;
 
-        echo $feed ? BladeLoader::getInstance()->template('single-podcast', ['episode' => $feed['episode'], 'title' => $feed['title']]) : false;
+        if(!$feed) return;
+        
+        $template = BladeLoader::getInstance()->template('single-podcast', ['episode' => $feed['episode'], 'title' => $feed['title']]);
+        echo wp_kses($template, Escape::alpine_template($template));
     }
 }

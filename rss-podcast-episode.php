@@ -3,10 +3,12 @@
 /**
  * @wordpress-plugin
  * Plugin Name:       Rss Podcast Episode
- * Plugin URI:        https://sirvelia.com/
+ * Plugin URI:        https://github.com/Sirvelia-Labs/rss-podcast-episode
  * Description:       Adds Podcast blocks for Gutenberg, Elementor and Beaver Builder
  * Version:           1.0.0
+ * Requires PHP:      7.4
  * Author:            Sirvelia
+ * Author URI:        https://sirvelia.com/
  * License:           GPL-3.0+
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain:       rss-podcast-episode

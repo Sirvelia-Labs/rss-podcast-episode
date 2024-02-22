@@ -22,10 +22,10 @@ class Elementor
 
     public function register_modules($widgets_manager)
     {
-        require_once RSSPODCASTEPISODE_PATH . 'Components/elementor/last-episode.php';
-        require_once RSSPODCASTEPISODE_PATH . 'Components/elementor/podcast-playlist.php';
+        require_once RSSPODCASTEPISODE_PATH . 'Components/elementor/rss-podcast-episode-last.php';
+        require_once RSSPODCASTEPISODE_PATH . 'Components/elementor/rss-podcast-episode-playlist.php';
 
-        $widgets_manager->register(new \Elementor_LastEpisode());
-        $widgets_manager->register(new \Elementor_PodcastPlaylist());
+        $widgets_manager->register(new \RssPodcastEpisodeLast());
+        $widgets_manager->register(new \RssPodcastEpisodePlaylist());
     }
 }

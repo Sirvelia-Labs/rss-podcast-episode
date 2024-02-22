@@ -43,7 +43,8 @@ class Gutenberg
                 wp_enqueue_script(RSSPODCASTEPISODE_NAME);
 				
                 $feed = $fields['url_single_podcast'] ? FeedReader::get_last_episode($fields['url_single_podcast']) : [];
-                echo $this->blade->template('single-podcast', ['episode' => $feed['episode'], 'title' => $feed['title']]);
+
+                echo wp_kses($this->blade->template('single-podcast', ['episode' => $feed['episode'], 'title' => $feed['title']]), 'rsspodcastepisode-alpine');
             });
 
 
@@ -59,7 +60,8 @@ class Gutenberg
                 wp_enqueue_script(RSSPODCASTEPISODE_NAME);
 				
                 $feed = $fields['url_podcast_playlist'] ? FeedReader::get_feed($fields['url_podcast_playlist']) : [];
-                echo  $this->blade->template('podcast-playlist', ['feed' => $feed['items'], 'title' => $feed['title']]);
+
+                echo wp_kses($this->blade->template('podcast-playlist', ['feed' => $feed['items'], 'title' => $feed['title']]), 'rsspodcastepisode-alpine');
             });
     }
 }

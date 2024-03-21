@@ -2,7 +2,7 @@
 
 /**
  * @wordpress-plugin
- * Plugin Name:       Rss Podcast Episode
+ * Plugin Name:       RSS Podcast Episode
  * Plugin URI:        https://github.com/Sirvelia-Labs/rss-podcast-episode
  * Description:       Adds Podcast blocks for Gutenberg, Elementor and Beaver Builder
  * Version:           1.0.0

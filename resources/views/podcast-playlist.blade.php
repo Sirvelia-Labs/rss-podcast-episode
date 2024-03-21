@@ -1,6 +1,4 @@
-@php
-    if ( ! defined( 'ABSPATH' ) ) exit;
-@endphp
+<?php if ( ! defined( 'ABSPATH' ) ) exit; ?>
 
 <div class="pb-shadow-[0_0px_60px_-15px_rgba(0,0,0,0.3)] pb-rounded-lg pb-overflow-hidden" x-cloak
     x-data="audioData(@js($feed))">

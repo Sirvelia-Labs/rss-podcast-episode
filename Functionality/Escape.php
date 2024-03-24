@@ -18,11 +18,6 @@ class Escape
 
 	public function allow_alpine($allowed, $context)
 	{
-
-		error_log(print_r($allowed, true));
-
-		
-
 		// if ($context !== 'rsspodcastepisode-alpine') {
 		// 	return $allowed;
 		// }

@@ -6,6 +6,7 @@ use Carbon_Fields\Field;
 use Carbon_Fields\Block;
 use RssPodcastEpisode\Includes\BladeLoader;
 use RssPodcastEpisode\Components\FeedReader;
+use RssPodcastEpisode\Components\Escape;
 
 class Gutenberg
 {
@@ -44,7 +45,10 @@ class Gutenberg
 				
                 $feed = $fields['url_single_podcast'] ? FeedReader::get_last_episode($fields['url_single_podcast']) : [];
 
-                echo wp_kses($this->blade->template('single-podcast', ['episode' => $feed['episode'], 'title' => $feed['title']]), 'rsspodcastepisode-alpine');
+                if($feed) {
+                    $template = $this->blade->template('single-podcast', ['episode' => $feed['episode'], 'title' => $feed['title']]);
+                    echo wp_kses($template, Escape::alpine_template($template));
+                }
             });
 
 
@@ -61,7 +65,10 @@ class Gutenberg
 				
                 $feed = $fields['url_podcast_playlist'] ? FeedReader::get_feed($fields['url_podcast_playlist']) : [];
 
-                echo wp_kses($this->blade->template('podcast-playlist', ['feed' => $feed['items'], 'title' => $feed['title']]), 'rsspodcastepisode-alpine');
+                if($feed) {
+                    $template = $this->blade->template('podcast-playlist', ['feed' => $feed['items'], 'title' => $feed['title']]);
+                    echo wp_kses($template, Escape::alpine_template($template));
+                }
             });
     }
 }

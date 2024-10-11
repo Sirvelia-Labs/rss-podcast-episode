@@ -32,10 +32,10 @@ class Gutenberg
 
     public function add_gutenberg_blocks()
     {
-        Block::make(__('Podcast: Last Episode'))
+        Block::make(esc_html__('Podcast: Last Episode', 'rss-podcast-episode'))
             ->add_fields(array(
-                Field::make('separator', 'single_separator', __('Last Episode', 'rss-podcast-episode')),
-                Field::make('text', 'url_single_podcast', __('Podcast URL')),
+                Field::make('separator', 'single_separator', esc_html__('Last Episode', 'rss-podcast-episode')),
+                Field::make('text', 'url_single_podcast', esc_html__('Podcast URL', 'rss-podcast-episode')),
             ))
             ->set_icon('format-audio')
             ->set_category('rss-podcast-episode')
@@ -52,10 +52,10 @@ class Gutenberg
             });
 
 
-        Block::make(__('Podcast: Podcast Playlist'))
+        Block::make(esc_html__('Podcast: Podcast Playlist', 'rss-podcast-episode'))
             ->add_fields(array(
-                Field::make('separator', 'playlist_separator', __('Podcast Playlist', 'rss-podcast-episode')),
-                Field::make('text', 'url_podcast_playlist', __('Podcast URL')),
+                Field::make('separator', 'playlist_separator', esc_html__('Podcast Playlist', 'rss-podcast-episode')),
+                Field::make('text', 'url_podcast_playlist', esc_html__('Podcast URL', 'rss-podcast-episode')),
             ))
             ->set_icon('playlist-audio')
             ->set_category('rss-podcast-episode')

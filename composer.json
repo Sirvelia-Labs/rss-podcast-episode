@@ -23,9 +23,9 @@
 	"license": "GPL-3.0+",
 	"name": "sirvelia-labs/rss-podcast-episode",
 	"require": {
-		"jenssegers/blade": "v1.4.0",
 		"php": ">=7.4",
-		"htmlburger/carbon-fields": "^v3.6.3"
+		"htmlburger/carbon-fields": "v3.6.5",
+		"eftec/bladeone": "^4.15.2"
 	},
 	"type": "wordpress-plugin"
 }

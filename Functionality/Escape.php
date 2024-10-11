@@ -18,31 +18,11 @@ class Escape
 
 	public function allow_alpine($allowed, $context)
 	{
-		// if ($context !== 'rsspodcastepisode-alpine') {
-		// 	return $allowed;
-		// }
-
 		global $allowedposttags;
-
-		// // Alpine.js directives x-*
-		// preg_match_all('/(x-[\w:.-]*)/', $content, $matches);
-
-		// if ($matches === false || empty($matches[0])) {
-		// 	return $allowedposttags;
-		// }
 
 		$allowed = $allowedposttags;
 		$allowed['div']['x-data'] = true;
-		// $alpineAttrs = [];
-
-		// foreach ($matches[0] as $match) {
-		// 	$alpineAttrs[$match] = true;
-		// }
-
-		// foreach ($allowed as $tag => $attributes) {
-		// 	$allowed[$tag] = array_merge($alpineAttrs, $attributes);
-		// }
-
+		
 		return $allowed;
 	}
 }

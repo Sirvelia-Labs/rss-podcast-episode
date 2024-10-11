@@ -2,7 +2,7 @@
 
 namespace RssPodcastEpisode\Includes;
 
-use Jenssegers\Blade\Blade;
+use eftec\bladeone\BladeOne;
 
 class BladeLoader
 {
@@ -11,7 +11,7 @@ class BladeLoader
 
 	private function __construct()
 	{
-		$this->blade = new Blade(RSSPODCASTEPISODE_PATH . 'resources/views', RSSPODCASTEPISODE_PATH . 'resources/cache');
+		$this->blade = new BladeOne(RSSPODCASTEPISODE_PATH . 'resources/views', RSSPODCASTEPISODE_PATH . 'resources/cache');
 	}
 
 	// Clone not allowed
@@ -34,6 +34,6 @@ class BladeLoader
 
 	public function template($name, $args = [])
 	{
-		return $this->blade->render($name, $args);
+		return $this->blade->run($name, $args);
 	}
 }

@@ -11,7 +11,7 @@ module.exports = {
 			colors: {},
 		},
 	},
-	plugins: [], //require("daisyui")
+	plugins: [],
 	important: true,
 	prefix: "pb-",
 	corePlugins: {

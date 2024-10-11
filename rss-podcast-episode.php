@@ -5,7 +5,7 @@
  * Plugin Name:       RSS Podcast Episode
  * Plugin URI:        https://github.com/Sirvelia-Labs/rss-podcast-episode
  * Description:       Adds Podcast blocks for Gutenberg, Elementor and Beaver Builder
- * Version:           1.0.0
+ * Version:           1.1.0
  * Requires PHP:      7.4
  * Author:            Sirvelia
  * Author URI:        https://sirvelia.com/
@@ -21,10 +21,12 @@ if (!defined('WPINC')) {
 
 // PLUGIN CONSTANTS
 define('RSSPODCASTEPISODE_NAME', 'rss-podcast-episode');
-define('RSSPODCASTEPISODE_VERSION', '1.0.0');
+define('RSSPODCASTEPISODE_VERSION', '1.1.0');
 define('RSSPODCASTEPISODE_PATH', plugin_dir_path(__FILE__));
 define('RSSPODCASTEPISODE_BASENAME', plugin_basename(__FILE__));
 define('RSSPODCASTEPISODE_URL', plugin_dir_url(__FILE__));
+define('RSSPODCASTEPISODE_ASSETS_PATH', RSSPODCASTEPISODE_PATH . 'dist/' );
+define('RSSPODCASTEPISODE_ASSETS_URL', RSSPODCASTEPISODE_URL . 'dist/' );
 
 // AUTOLOAD
 if ( file_exists(RSSPODCASTEPISODE_PATH . 'vendor/autoload.php') ) {

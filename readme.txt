@@ -2,7 +2,7 @@
 Contributors: joanrodas,sirvelia
 Tags: podcast, rss, playlist, feed
 Requires at least: 5.4
-Tested up to: 6.4.3
+Tested up to: 6.6.2
 Requires PHP: 7.4
 Stable tag: 1.1.0
 License: GPLv3

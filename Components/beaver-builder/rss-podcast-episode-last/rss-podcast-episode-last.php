@@ -24,14 +24,14 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 \FLBuilder::register_module('RssPodcastEpisodeLast', array(
     'podcast-tab'      => [
-        'title'         => __('Config', 'rss-podcast-episode'),
+        'title'         => esc_html__('Config', 'rss-podcast-episode'),
         'sections'      => [
             'podcast-section'  => [
-                'title'         => __('URL', 'rss-podcast-episode'),
+                'title'         => esc_html__('URL', 'rss-podcast-episode'),
                 'fields'        => [
                     'podcast_url'     => [
                         'type'          => 'text',
-                        'label'         => __('Podcast URL', 'rss-podcast-episode'),
+                        'label'         => esc_html__('Podcast URL', 'rss-podcast-episode'),
                     ],
                 ]
             ]

@@ -1,4 +1,6 @@
-<?php if ( ! defined( 'ABSPATH' ) ) exit; ?>
+<?php if (!defined('ABSPATH')) {
+    exit();
+} ?>
 
 <div class="pb-shadow-[0_0px_60px_-15px_rgba(0,0,0,0.3)] pb-rounded-lg pb-overflow-hidden" x-cloak
     x-data="audioData(@js($feed))">
@@ -42,12 +44,12 @@
                         <div class="pb-mt-auto pb-flex pb-justify-end pb-gap-x-2">
                             <div class="pb-rounded-full pb-p-1 pb-cursor-pointer pb-border-black pb-border-2 hover:pb-bg-black hover:pb-text-white"
                                 x-on:click.stop="moveBackSeconds">
-                                <p class="pb-text-sm pb-font-semibold">-30s</p>
+                                <p class="pb-text-sm pb-font-semibold">{!! esc_html__('-30s', 'rss-podcast-episode') !!}</p>
                             </div>
 
                             <div class="pb-rounded-full pb-p-1 pb-cursor-pointer pb-border-black pb-border-2 hover:pb-bg-black hover:pb-text-white"
                                 x-on:click.stop="advanceSeconds">
-                                <p class="pb-text-sm pb-font-semibold">+30s</p>
+                                <p class="pb-text-sm pb-font-semibold">{!! esc_html__('+30s', 'rss-podcast-episode') !!}</p>
                             </div>
                         </div>
                     </div>
@@ -72,12 +74,15 @@
 
 
         <template x-for="(item,index) in items" x-bind:key="index">
-            <div x-bind:class="(selectedItem === index) ? 'pb-border-green-400' : 'pb-border-gray-200'" class="pb-border pb-flex pb-flex-row pb-rounded-lg pb-p-4 lg:pb-p-6 pb-gap-x-6 pb-cursor-pointer"
+            <div x-bind:class="(selectedItem === index) ? 'pb-border-green-400' : 'pb-border-gray-200'"
+                class="pb-border pb-flex pb-flex-row pb-rounded-lg pb-p-4 lg:pb-p-6 pb-gap-x-6 pb-cursor-pointer"
                 x-on:click="changePlaying(index)">
                 <div
                     class="pb-shrink-0 pb-w-14 pb-h-14 pb-relative pb-justify-center pb-items-center pb-hidden lg:pb-flex">
-                    <div class="pb-w-full pb-h-full pb-rounded-md pb-justify-center pb-items-center pb-relative pb-flex">
-                        <div class="pb-rounded-full pb-w-1/2 pb-h-1/2 pb-bg-white pb-z-10 hover:pb-scale-110 pb-flex pb-justify-center pb-items-center">
+                    <div
+                        class="pb-w-full pb-h-full pb-rounded-md pb-justify-center pb-items-center pb-relative pb-flex">
+                        <div
+                            class="pb-rounded-full pb-w-1/2 pb-h-1/2 pb-bg-white pb-z-10 hover:pb-scale-110 pb-flex pb-justify-center pb-items-center">
                             <template x-if="selectedItem !== index || !playing">
                                 <div
                                     class="pb-border-b-transparent pb-border-b-[8px] pb-border-t-transparent pb-border-t-[8px] pb-border-l-[12px] pb-border-l-black">
@@ -105,8 +110,7 @@
                         x-text="item.title">
                     </p>
 
-                    <div
-                        class="pb-flex-row pb-justify-between pb-flex pb-text-right lg:pb-hidden pb-pt-2">
+                    <div class="pb-flex-row pb-justify-between pb-flex pb-text-right lg:pb-hidden pb-pt-2">
                         <p class="pb-whitespace-nowrap pb-text-sm" x-text="item.pubDate"></p>
                         <p class="pb-text-sm" x-text="item.duration"></p>
                     </div>
@@ -118,24 +122,22 @@
 
                         <template x-if="showMoreItem !== index">
                             <p class="pb-text-black pb-font-bold pb-cursor-pointer pb-z-50"
-                                x-on:click.stop="showMoreItem = index">See more</p>
+                                x-on:click.stop="showMoreItem = index">{!! esc_html__('See more', 'rss-podcast-episode') !!}</p>
                         </template>
 
                         <template x-if="showMoreItem === index">
                             <p class="pb-text-black pb-font-bold pb-cursor-pointer pb-z-50"
-                                x-on:click.stop="showMoreItem = null">See less</p>
+                                x-on:click.stop="showMoreItem = null">{!! esc_html__('See less', 'rss-podcast-episode') !!}</p>
                         </template>
                     </div>
                 </div>
 
-                <div
-                    class="pb-flex-col pb-justify-between lg:pb-flex pb-hidden pb-text-right">
+                <div class="pb-flex-col pb-justify-between lg:pb-flex pb-hidden pb-text-right">
                     <p class="pb-whitespace-nowrap" x-text="item.pubDate"></p>
                     <p x-text="item.duration"></p>
                 </div>
             </div>
         </template>
-
 
     </div>
 </div>

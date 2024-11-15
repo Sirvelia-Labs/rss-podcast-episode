@@ -40,12 +40,12 @@
                     <div class="pb-mt-auto pb-flex pb-justify-end pb-gap-x-2">
                         <div class="pb-rounded-full pb-p-1 pb-cursor-pointer pb-border-black pb-border-2 hover:pb-bg-black hover:pb-text-white"
                             x-on:click.stop="moveBackSeconds">
-                            <p class="pb-text-sm pb-font-semibold">-30s</p>
+                            <p class="pb-text-sm pb-font-semibold">{!! esc_html__('-30s', 'rss-podcast-episode') !!}</p>
                         </div>
 
                         <div class="pb-rounded-full pb-p-1 pb-cursor-pointer pb-border-black pb-border-2 hover:pb-bg-black hover:pb-text-white"
                             x-on:click.stop="advanceSeconds">
-                            <p class="pb-text-sm pb-font-semibold">+30s</p>
+                            <p class="pb-text-sm pb-font-semibold">{!! esc_html__('+30s', 'rss-podcast-episode') !!}</p>
                         </div>
                     </div>
                 </div>

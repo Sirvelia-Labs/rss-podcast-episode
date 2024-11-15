@@ -12,6 +12,10 @@ class BladeLoader
 	private function __construct()
 	{
 		$this->blade = new BladeOne(RSSPODCASTEPISODE_PATH . 'resources/views', RSSPODCASTEPISODE_PATH . 'resources/cache');
+
+		$this->blade->directive('js', function ($expression) {
+			return "<?php echo htmlspecialchars(json_encode($expression, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT), ENT_QUOTES, 'UTF-8'); ?>";
+		});
 	}
 
 	// Clone not allowed

@@ -2,6 +2,100 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+
+  .rpe-item {
+    @apply grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 overflow-hidden mx-auto pr-4;
+    max-width: 700px;
+  }
+
+  .rpe-inner {
+    @apply md:col-span-2 lg:col-span-3 flex flex-col gap-2 justify-center items-start;
+  }
+
+  .rpe-playing-container {
+    @apply rounded-full w-8 h-8 bg-green-400 z-10 hover:scale-110 flex justify-center items-center cursor-pointer;
+  }
+
+  .rpe-not-playing {
+    @apply border-b-transparent border-b-[8px] border-t-transparent border-t-[8px] border-l-[12px] border-l-black;
+  }
+
+  .rpe-playing {
+    @apply border-black border-l-4 border-r-4 w-1/2 h-1/2;
+  }
+
+  .rpe-move-controls {
+    @apply text-sm flex gap-2;
+
+    button {
+      background: none;
+      @apply border-0;
+    }
+  }
+  
+  .rpe-times {
+    @apply w-full flex justify-between text-sm items-center;
+  }
+
+  .rpe-progressbar {
+    @apply w-full h-4 bg-white relative overflow-hidden;
+
+    .rpe-progress {
+      @apply absolute left-0 top-0 bottom-0 h-full max-w-full bg-green-400;
+    }
+  }
+
+  .rpe-current-container {
+    
+
+    .rpe-current-img {
+      @apply md:col-span-1 lg:col-span-2 rounded-xl lg:rounded-2xl;
+    }
+
+
+    .rpe-current-episode-title {
+      @apply text-xl lg:text-2xl font-bold;
+    }
+
+    .rpe-current-subtitle {
+      @apply flex gap-1 text-sm;
+    }
+
+  }
+
+  .rpe-playlist {
+
+    @apply grid grid-cols-1 gap-4 mt-6 md:max-h-screen md:overflow-y-scroll;
+
+    .rpe-item-img-container {
+      @apply relative md:col-span-1 lg:col-span-2 overflow-hidden;
+    }
+
+    .rpe-item-playing-container {
+      @apply absolute m-auto top-0 left-0 right-0 bottom-0 rounded-full w-8 h-8 bg-green-400 z-10 hover:scale-110 cursor-pointer flex items-center justify-center;
+    }
+
+    .rpe-item-playing {
+      @apply border-black border-l-4 border-r-4 w-1/2 h-1/2;
+    }
+
+    .rpe-item-not-playing {
+      @apply border-b-transparent border-b-[8px] border-t-transparent border-t-[8px] border-l-[12px] border-l-black;
+    }
+
+    .rpe-item-selected-icon {
+      @apply absolute left-4 top-4 w-2 h-2 bg-green-400 rounded-full;
+    }
+
+    .rpe-item-img {
+      @apply rounded-xl lg:rounded-2xl;
+    }
+  }
+
+
+}
+
 @layer utilities {
 
   /* Firefox */

@@ -12,8 +12,6 @@ module.exports = {
 		},
 	},
 	plugins: [],
-	important: true,
-	prefix: "pb-",
 	corePlugins: {
 		preflight: true,
 	},
